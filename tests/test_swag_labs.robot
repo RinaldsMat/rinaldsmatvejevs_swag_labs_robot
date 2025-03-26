@@ -4,7 +4,7 @@ Library    SeleniumLibrary
 
 *** variables ***
 ${Browser}  chrome
-${URL}      file:///C:\C O L L E G E\FINLAND SEMESTER Y2S2\SOFTWARE TESTING - FINLAND\ROBOT TEST\swag_labs (1).html
+${URL}      https://rinaldsmat.github.io/rinaldsmatvejevs_swag_labs_robot/swag_labs.html
 ${SCREENSHOT_DIR}     ./results/screenshot/
 
 
@@ -12,7 +12,7 @@ ${SCREENSHOT_DIR}     ./results/screenshot/
 *** Test Cases ***
 
 InputTest
-    Open Browser    file:///C:/C%20O%20L%20L%20E%20G%20E/FINLAND%20SEMESTER%20Y2S2/SOFTWARE%20TESTING%20-%20FINLAND/ROBOT%20TEST/swag_labs%20(1).html    browser=chrome
+    Open Browser    ${URL}    browser=${Browser}
     Capture Page Screenshot    ${SCREENSHOT_DIR}landing_page_test.png
 
     Input text    id=username   standard_user
