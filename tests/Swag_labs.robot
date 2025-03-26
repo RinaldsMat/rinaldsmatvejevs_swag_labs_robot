@@ -12,11 +12,19 @@ ${SCREENSHOT_DIR}     ./results/screenshot/
 *** Test Cases ***
 
 InputTest
-    #Open Browser    ${URL}    browser=${Browser}    chrome_options=--headless
+    #Open Browser    ${URL}    browser=${Browser}
     #Capture Page Screenshot    ${SCREENSHOT_DIR}landing_page_test.png
 
-    Create WebDriver    ${Browser}    options=--headless
+    ${options}=    Evaluate    selenium.webdriver.ChromeOptions()    selenium.webdriver
+    Call Method    ${options}    add_argument    --headless
+    Call Method    ${options}    add_argument    --disable-gpu
+    Call Method    ${options}    add_argument    --no-sandbox
+    Call Method    ${options}    add_argument    --disable-dev-shm-usage
+    Call Method    ${options}    add_argument    --disable-logging--disable-logging
+
+    Create WebDriver    Chrome    options=${options}
     Go To    ${URL}
+
 
     Input text    id=username   standard_user
     Input text    id=password   secret_sauce
