@@ -12,7 +12,7 @@ ${SCREENSHOT_DIR}     ./results/screenshot/
 *** Test Cases ***
 
 InputTest
-    Open Browser    ${URL}    browser=${Browser}
+    Open Browser    ${URL}    browser=${Browser}    chrome_options=--headless
     Capture Page Screenshot    ${SCREENSHOT_DIR}landing_page_test.png
 
     Input text    id=username   standard_user
