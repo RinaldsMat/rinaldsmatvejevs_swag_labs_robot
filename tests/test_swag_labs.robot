@@ -12,8 +12,11 @@ ${SCREENSHOT_DIR}     ./results/screenshot/
 *** Test Cases ***
 
 InputTest
-    Open Browser    ${URL}    browser=${Browser}    chrome_options=--headless
-    Capture Page Screenshot    ${SCREENSHOT_DIR}landing_page_test.png
+    #Open Browser    ${URL}    browser=${Browser}    chrome_options=--headless
+    #Capture Page Screenshot    ${SCREENSHOT_DIR}landing_page_test.png
+
+    Create WebDriver    ${Browser}    options=--headless
+    Go To    ${URL}
 
     Input text    id=username   standard_user
     Input text    id=password   secret_sauce
